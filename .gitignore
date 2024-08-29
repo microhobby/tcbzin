@@ -1,0 +1,5 @@
+storage/
+tuf/
+tcbzin-TCB-CUSTOM/
+credentials.zip
+*.lock.yml
