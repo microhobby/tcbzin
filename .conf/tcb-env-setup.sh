@@ -10,6 +10,15 @@ if [$DOCKER_REGISTRY = ""]; then
     export DOCKER_REGISTRY="registry-1.docker.io"
 fi
 
+# Edge case for Github Actions dind
+if [ -n "$HOST_GITHUB_WORKSPACE" ]; then
+    # in this case we need to mount the workspace to the environment
+    working_directory="$HOST_GITHUB_WORKSPACE"
+else
+    # if not set, we use the current directory
+    working_directory=$(pwd)
+fi
+
 # Check to make sure script is being sourced otherwise exit
 SOURCED=0
 
@@ -43,7 +52,6 @@ tcb_env_setup_cleanup () {
     unset under_windows
     unset user_tag
     unset storage
-    unset working_directory
     unset volumes
     unset network
     unset remote_tags
@@ -95,12 +103,6 @@ tcb_env_setup_usage () {
     echo "      should use to keep its state information and image customizations."
     echo "      It must be an absolute directory or a Docker volume name. If this"
     echo "      flag is not set, the \"storage\" Docker volume will be used."
-    echo ""
-    echo "  -wd: select working directory for docker mount to /workdir"
-    echo "      (Optional) Pass the directory explicitly for docker run torizon/torizoncore-builder"
-    echo "      to mount as /workdir."
-    echo "      It must be an absolute directory. If this is not set, \$(pwd) with be used"
-    echo ""
     echo "  -n: do not enable \"host\" network mode."
     echo "      Under Linux the tool runs in \"host\" network mode by default allowing"
     echo "      it to operate as a server without explicit port publishing. Under"
@@ -139,7 +141,6 @@ fi
 # Parse flags
 volumes=" -v /deploy "
 storage="storage"
-working_directory="working_directory"
 network=" --network=host "
 if [ $under_windows = "1" ]; then
     # Do not use "host" network mode under Windows/WSL
@@ -151,7 +152,6 @@ do
         -a) source=$2;[ "$2" ]||source="empty"; shift; shift;;
         -t) user_tag="$2";[ "$2" ]||user_tag="empty"; shift; shift;;
         -s) storage="$2";[ "$2" ]||storage="empty"; shift; shift;;
-        -wd) working_directory="$2";[ "$2" ]||working_directory=$(pwd); shift; shift;;
         -d) volumes=" "; shift;;
         -n) network=" "; shift;;
         --) shift; break;;

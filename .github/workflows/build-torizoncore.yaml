@@ -16,7 +16,7 @@ jobs:
           path: storage/
           key: tcb
 
-      - name: Set abs-path file
+      - name: Get Host Absolute Workspace Path
         run: |
           echo "${{ github.workspace }}" >> abs-path
           cat abs-path

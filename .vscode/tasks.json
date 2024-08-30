@@ -280,9 +280,7 @@
                 "-s",
                 "${workspaceFolder}/storage",
                 "-t",
-                "${config:tcb.version}",
-                "-wd",
-                "${workspaceFolder}"
+                "${config:tcb.version}"
             ],
             "problemMatcher": [
                 "$tsc"
@@ -320,9 +318,7 @@
                 "-s",
                 "${workspaceFolder}/storage",
                 "-t",
-                "${config:tcb.version}",
-                "-wd",
-                "${workspaceFolder}"
+                "${config:tcb.version}"
             ],
             "problemMatcher": [
                 "$tsc"
@@ -360,9 +356,7 @@
                 "-s",
                 "${workspaceFolder}/storage",
                 "-t",
-                "${config:tcb.version}",
-                "-wd",
-                "${workspaceFolder}"
+                "${config:tcb.version}"
             ],
             "problemMatcher": [
                 "$tsc"
@@ -399,9 +393,7 @@
                 "-s",
                 "${workspaceFolder}/storage",
                 "-t",
-                "${config:tcb.version}",
-                "-wd",
-                "${workspaceFolder}"
+                "${config:tcb.version}"
             ],
             "problemMatcher": [
                 "$tsc"
@@ -438,9 +430,7 @@
                 "-s",
                 "${workspaceFolder}/storage",
                 "-t",
-                "${config:tcb.version}",
-                "-wd",
-                "${workspaceFolder}"
+                "${config:tcb.version}"
             ],
             "problemMatcher": [
                 "$tsc"
@@ -478,9 +468,7 @@
                 "-s",
                 "${workspaceFolder}/storage",
                 "-t",
-                "${config:tcb.version}",
-                "-wd",
-                "${workspaceFolder}"
+                "${config:tcb.version}"
             ],
             "problemMatcher": [
                 "$tsc"
@@ -517,9 +505,7 @@
                 "-s",
                 "${workspaceFolder}/storage",
                 "-t",
-                "${config:tcb.version}",
-                "-wd",
-                "${workspaceFolder}"
+                "${config:tcb.version}"
             ],
             "problemMatcher": [
                 "$tsc"
@@ -557,9 +543,7 @@
                 "-s",
                 "${workspaceFolder}/storage",
                 "-t",
-                "${config:tcb.version}",
-                "-wd",
-                "${workspaceFolder}"
+                "${config:tcb.version}"
             ],
             "problemMatcher": [
                 "$tsc"

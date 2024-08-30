@@ -702,7 +702,8 @@ if (
     # github actions sandboxes runners by re-writing their ABS path,
     # so when we do a docker-in-docker build, the mount point for workdir is not found.
     # This sets the ABS path from a file called abs-path
-    $Global:workspaceFolder = Get-Content -Path abs-path -ReadCount 1
+    $Global:workspaceFolder = Join-Path $PSScriptRoot ..
+    $env:HOST_GITHUB_WORKSPACE = Get-Content -Path abs-path -ReadCount 1
 } else {
     $Global:workspaceFolder = $env:APOLLOX_WORKSPACE
 }
